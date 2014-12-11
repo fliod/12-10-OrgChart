@@ -27,7 +27,7 @@ public class Manager extends Employee
   }
   public void removeDirectReport(Employee employee)
   {
-    directReports.remove(employee);
+    directReports.remove(directReports.indexOf(employee));
   }
   public void setDepartment(String newDepartment)
   {
