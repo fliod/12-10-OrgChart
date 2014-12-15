@@ -1,4 +1,3 @@
-// Super Class to represent a person
 public class Person
 {
   private String firstName;
@@ -36,5 +35,17 @@ public class Person
   {
     String s=lastName+", "+firstName;
     return s;
+  }
+  public boolean equals(Object o)
+  {
+    if(o instanceof Person)
+    {
+      Person other = (Person) o;
+      return firstName==other.firstName && lastName==other.lastName && age==other.age;
+    }
+    else
+    {
+      return false;
+    }
   }
 }
