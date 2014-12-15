@@ -1,4 +1,3 @@
-// class to represent a manager - inherits Emplyee
 import java.util.*;
 public class Manager extends Employee
 {
@@ -32,5 +31,17 @@ public class Manager extends Employee
   public void setDepartment(String newDepartment)
   {
     department=newDepartment;
+  }
+  public boolean equals(Object o)
+  {
+    if(o instanceof Manager)
+    {
+      Manager other = (Manager) o;
+      return directReports.equals(other.directReports) && department == other.department && super.equals(o);
+    }
+    else
+    {
+      return false;
+    }
   }
 }
