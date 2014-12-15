@@ -1,4 +1,3 @@
-// class to represent an emplayee - inherits Person
 public class Employee extends Person
 {
   private double hourlyWage;
@@ -26,7 +25,7 @@ public class Employee extends Person
   }
   public double getYearlySalary()
   {
-    return hoursWorked*hourlyWage*52;
+    return this.getWeeklySalary()*52;
   }
   public String getJobTitle()
   {
@@ -59,7 +58,24 @@ public class Employee extends Person
   }
   public void setManager(Manager newManager)
   {
-    m=newManager;
+    if(this.m != null)
+    {
+      this.m.removeDirectReport(this);
+    }
+    this.m = newManager;
+    m.addDirectReport(this);
+  }
+  public boolean equals(Object o)
+  {
+    if(o instanceof Employee)
+    {
+      Employee other = (Employee) o;
+      return hourlyWage==other.hourlyWage && hoursWorked==other.hoursWorked && jobTitle==other.jobTitle && super.equals(o);
+    }
+    else
+    {
+      return false;
+    }
   }
 }
   
