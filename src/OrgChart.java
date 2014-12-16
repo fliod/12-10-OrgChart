@@ -1,4 +1,3 @@
-// main program to drive org chart
 public class OrgChart
 {
   public static void main(String[] args)
@@ -12,7 +11,27 @@ public class OrgChart
     Employee e3=new Employee("Bill", "Jill", 30, 40.0,3, "Swag Janitor");
     e3.setManager(m1);
     e3.setManager(m2);
-    System.out.println(m1.toString()+"\n\t"+e1.toString()+"\n\t"+e2.toString());
-    System.out.println(m2.toString()+"\n\t"+e3.toString());
+    printInfo(m1);
+    printInfo(e1);
+    printInfo(e2);
+    printInfo(m2);
+    printInfo(e3);
+  }
+  public static void printInfo(Person p)
+  {
+   if(p instanceof Manager)
+   {
+     Manager m=(Manager)p;
+     System.out.println(m.getFirstName()+", "+m.getLastName()+", "+m.getAge()+", "+m.getWage()+", "+m.getHours()+", "+m.getJobTitle()+", "+m.getDepartment());
+   }
+   if(p instanceof Employee)
+   {
+     Employee e=(Employee)p;
+     System.out.println("\t"+e.getFirstName()+", "+e.getLastName()+", "+e.getAge()+", "+e.getWage()+", "+e.getHours()+", "+e.getJobTitle());
+   }
+   else
+   {
+     System.out.println(p.getFirstName()+", "+p.getLastName()+", "+p.getAge());
+   }
   }
 }
